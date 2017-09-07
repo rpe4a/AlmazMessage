@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/dist/message_styles.css">
+</head>
+
+<body>
+    <div class="message_conteiner">
+        <div class="message_conteiner_header padding-1">Отправьте нам сообщение</div>
+        <div class="message_conteiner_body">
+            <div class="message_conteiner_body_header margin-1">Оставьте свое сообщение в этой форме, мы получим его на e-mail и обязательно ответим!</div>
+            <form class="message_conteiner_body_form">
+                <input value="callme" type="hidden" name="action">
+                <div class="message_form_input">
+                    <textarea name="inputMessage" required maxlength="300" id="inputMessage" cols="30" rows="10" placeholder="Ваше сообщение*"></textarea>
+                    <span class="errorInput"></span>
+                </div>
+                <div class="message_form_input">
+                    <input type="text" maxlength="100" name='inputName' placeholder="Ваше имя">
+                    <span class="errorInput"></span>
+                </div>
+                <div class="message_form_input">
+                    <input type="text" maxlength="20" name='inputPhone' placeholder="Ваш телефон">
+                    <span class="errorInput"></span>
+                </div>
+                <div class="message_form_input">
+                    <input type="email" required maxlength="150" name='inputEmail' placeholder="Ваш e-mail*">
+                    <span class="errorInput"></span>
+                </div>
+                <div class="message_form_input">
+                    <input type="submit" value="ОТПРАВИТЬ">
+                </div>
+            </form>
+            <div class="message_conteiner_body_footer">
+                <p class="margin-b-1">Спасибо, Ваше сообщение отправлено, Мы обязательно свяжемся с вами.</p>
+                <button>ОТПРАВИТЬ ЕЩЕ</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="/dist/vendor.js"></script>
+    <script src="/dist/message.js"></script>
+</body>
+
+</html>

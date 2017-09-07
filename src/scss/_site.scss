@@ -1,0 +1,160 @@
+@import "/_normalize.scss";
+@import "/mixins/_smart-grid.scss";
+@import "./mixins/_margins.scss";
+@import "./mixins/_padding.scss";
+@import "./mixins/_others.scss";
+@include reset;
+
+html {
+  font-size: 62.5%;
+}
+
+%message_button {
+  float: right;
+  padding: 1rem;
+  background-color: #ee777b;
+  border-radius: 0.5rem;
+  border: 1px solid #d9d9d9;
+  color: white;
+  font-weight: bolder;
+  
+}
+
+%message_button_focus {
+  outline: none !important;
+  border: 1px solid #ee777b;
+}
+
+.message_conteiner {
+  width: 300px;
+  /* height: 490px; */
+  border: 1px solid #d9d9d9;
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: #f2f2f2;
+  display: none;
+
+  @include respond-to($break_xs) {
+    right: 0;
+    margin: 0 auto;
+    left: 0;
+  }
+
+  &_header {
+    background-color: #538cc6;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.8rem;
+  }
+
+  &_body {
+    @include row-flex;
+    display: none;
+
+    &_header {
+      @include col;
+      @include justify-content(center);
+      @include col-12;
+      @include offset-padding(0);
+    }
+
+    &_header,
+    &_footer {
+      color: grey;
+      font-size: 1.7rem;
+    }
+
+    &_footer {
+      @include col;
+      @include justify-content(center);
+      @include col-12;
+      @include offset-padding(0);
+      margin-bottom: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #d9d9d9;
+      display: none;
+
+      button {
+        @extend %message_button;
+
+        &:focus {
+          @extend %message_button_focus;
+        }
+      }
+    }
+
+    &_form {
+      @include row-flex;
+      @include col;
+      @include justify-content(center);
+      @include col-12;
+
+      .errorInput {
+        color: #ee777b;
+        display: none;
+      }
+
+      .error{
+        border: 1px solid #e63339;
+        box-shadow: 0 0 3px #e63339;
+      }
+
+      .error + .errorInput {
+        display: inline-block;
+      }
+
+      .message_form_input {
+        @include col;
+        @include justify-content(center);
+        @include col-12;
+        margin-bottom: 1rem;
+
+        textarea,
+        input[type="text"],
+        input[type="email"] {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid #d9d9d9;
+          border-radius: 0.5rem;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+          border: 1px solid #538cc6;
+          outline: none !important;
+          box-shadow: 0 0 3px #538cc6;
+        }
+
+        input[type="submit"] {
+          @extend %message_button;
+
+          &:focus {
+            @extend %message_button_focus;
+          }
+        }
+      }
+    }
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  @include respond-to($break_lg) {
+    font-size: 1.7rem;
+  }
+  @include respond-to($break_md) {
+    font-size: 1.8rem;
+  }
+  @include respond-to($break_sm) {
+    font-size: 1.9rem;
+  }
+  @include respond-to($break_xs) {
+    font-size: 2rem;
+  }
+}
